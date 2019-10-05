@@ -16,7 +16,7 @@ def max_number_words(list_words):
             max_list_with_words=wikipedia.title(page1)
     return(max_number_in_list,max_list_with_words)
 
-stroka=input().split(',')
+stroka=input().split(', ')
 if language_stroka(stroka)==1:
     wikipedia.set_lang(stroka[-1])
     print(max_number_words(stroka))
