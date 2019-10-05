@@ -1,0 +1,32 @@
+import wikipedia
+def language_stroka(stroka_language):
+    if stroka_language[-1] not in languages():
+        resultat=0
+    else:
+        resultat=1
+    return(resultat)    
+def max_number_words(list_words):
+    max_number_in_list=0
+    for i in range(0,len(list_words)-1):
+        page=page(list_words[i])
+        outline_page=page.summary
+        number_words=len(outline_page.split())
+        if max_number_in_list<=number_words:
+            max_number_in_list=number_words
+            max_list_with_words=page.title
+    return(max_number_in_list,max_list_with_words)
+def 
+
+
+
+
+
+
+
+stroka=input().split(',')
+if language_stroka(stroka)==1:
+    set_lang(stroka[-1])
+    print(max_number_words(stroka))
+    print()
+else:
+    print('no results')
