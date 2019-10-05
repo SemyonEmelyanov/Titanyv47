@@ -25,9 +25,9 @@ def maximum_chain(stroka2):
     chain_list=[]
     chain_list=[stroka2[0]]
     for i in range(0,len(stroka2)-2):
-    list_link=wikipedia.page(stroka2[i]).links
-    if stroka2[i+1] in list_link:
-        chain_list.append(stroka2[i+1])
+        list_link=wikipedia.page(stroka2[i]).links
+        if stroka2[i+1] in list_link:
+            chain_list.append(stroka2[i+1])
     else:
         for j in list_link:
             if is_page_valid(j):
