@@ -1,4 +1,10 @@
 import wikipedia
+def is_page_valid(page):                                                        
+    try:                                                                        
+        wikipedia.page(page)                                                    
+    except Exception:                                                           
+        return False                                                            
+    return True                                                                             
 def language_stroka(stroka_language):
     if stroka_language[-1] not in wikipedia.languages():
         resultat=0
@@ -15,11 +21,24 @@ def max_number_words(list_words):
             max_number_in_list=number_words
             max_list_with_words=wikipedia.title(page1)
     return(max_number_in_list,max_list_with_words)
-
+def maximum_chain(stroka2):
+    chain_list=[]
+    chain_list=[stroka2[0]]
+    for i in range(0,len(stroka2)-2):
+    list_link=wikipedia.page(stroka2[i]).links
+    if stroka2[i+1] in list_link:
+        chain_list.append(stroka2[i+1])
+    else:
+        for j in list_link:
+            if is_page_valid(j):
+                if (stroka2[i+1] in wikipedia.page(j).links):
+                    chain_list.append(j)
+                    chain_list.append(stroka[i+1])
+    return(chain_list)
 stroka=input().split(', ')
 if language_stroka(stroka)==1:
     wikipedia.set_lang(stroka[-1])
     print(max_number_words(stroka))
-    print()
+    print(maximum_chain(stroka))
 else:
     print('no results')
