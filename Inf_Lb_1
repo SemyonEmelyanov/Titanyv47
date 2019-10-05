@@ -1,6 +1,6 @@
 import wikipedia
 def language_stroka(stroka_language):
-    if stroka_language[-1] not in languages():
+    if stroka_language[-1] not in wikipedia.languages():
         resultat=0
     else:
         resultat=1
@@ -8,17 +8,17 @@ def language_stroka(stroka_language):
 def max_number_words(list_words):
     max_number_in_list=0
     for i in range(0,len(list_words)-1):
-        page1=page(list_words[i])
-        outline_page=page1.summary
+        page1=wikipedia.page(list_words[i])
+        outline_page=wikipedia.summary(page1)
         number_words=len(outline_page.split())
         if max_number_in_list<=number_words:
             max_number_in_list=number_words
-            max_list_with_words=page1.title
+            max_list_with_words=wikipedia.title(page1)
     return(max_number_in_list,max_list_with_words)
 
 stroka=input().split(',')
 if language_stroka(stroka)==1:
-    set_lang(stroka[-1])
+    wikipedia.set_lang(stroka[-1])
     print(max_number_words(stroka))
     print()
 else:
