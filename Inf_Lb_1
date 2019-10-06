@@ -28,14 +28,14 @@ def maximum_chain(stroka2):
         list_link=wikipedia.page(stroka2[i]).links
         if stroka2[i+1] in list_link:
             chain_list.append(stroka2[i+1])
-    else:
-        for j in list_link:
-            if j[:len(stroka2[i])]==stroka2[i]:
-                continue
-            if is_page_valid(j):
-                if (stroka2[i+1] in wikipedia.page(j).links):
-                    chain_list.append(j)
-                    chain_list.append(stroka[i+1])
+        else:
+            for j in list_link:
+                if j[:len(stroka2[i])]==stroka2[i]:
+                    continue
+                if is_page_valid(j):
+                    if (stroka2[i+1] in wikipedia.page(j).links):
+                        chain_list.append(j)
+                        chain_list.append(stroka[i+1])
     return(chain_list)
 stroka=input().split(', ')
 if language_stroka(stroka)==1:
