@@ -15,11 +15,11 @@ def max_number_words(list_words):
     max_number_in_list=0
     for i in range(0,len(list_words)-1):
         page1=wikipedia.page(list_words[i])
-        outline_page=wikipedia.summary(page1)
+        outline_page=page1.summary
         number_words=len(outline_page.split())
         if max_number_in_list<=number_words:
             max_number_in_list=number_words
-            max_list_with_words=wikipedia.title(page1)
+            max_list_with_words=page1.title
     return(max_number_in_list,max_list_with_words)
 def maximum_chain(stroka2):
     chain_list=[]
