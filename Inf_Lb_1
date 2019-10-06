@@ -30,6 +30,8 @@ def maximum_chain(stroka2):
             chain_list.append(stroka2[i+1])
     else:
         for j in list_link:
+            if j[:len(stroka2[i])]==stroka2[i]:
+                continue
             if is_page_valid(j):
                 if (stroka2[i+1] in wikipedia.page(j).links):
                     chain_list.append(j)
